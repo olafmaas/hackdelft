@@ -16,7 +16,7 @@ lines = corpus.read().lower().split("\n")
 count = len(lines)
 preprocessed = []
 for t in lines:
-    fixed =''.join([x for x in t if x.isalnum() or x.isspace()]).split()
+    fixed =''.join([x if x.isalnum() or x.isspace() else " " for x in t ]).split()
     preprocessed.append(fixed)
 
 documents = Documents(preprocessed)
