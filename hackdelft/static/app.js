@@ -17,20 +17,29 @@ function processTopics(topics) {
 
 function generate_view(topic, index) {
     console.log(topic);
-    console.log("test");
-    $("#topiclist").append('<div class="topic row" id="'+index+'"><div class="left">'+topic.goodactivity+'</div><div class="right">'+topic.topics.map(function (x) {
+
+    var topic_words = topic.topics.map(function (x) {
             return x[0]
-        }).join(", ")+'</div></div>')
+        });
+    console.log("test");
+    $("#topiclist").append('<div class="topic row" id="'+index+'"><div class="left">'+topic.goodactivity+'</div><div class="right">'+topic_words.join(", ")+'</div></div>')
+
 
 
     $("#"+index).click(function () {
-        loadUrls(topic.articles)
+        loadUrls(topic.articles, topic_words)
     })
 }
 
-function loadUrls(articles) {
+function loadUrls(articles, topics) {
     $("#articlelist").empty()
-    articles.forEach(function(article){
+    articles.sort(function(a1, a2){
+        // console.log(topics)
+        // console.log(a2.title.toLowerCase().split(" "))
+
+        return _.intersection(a2.title.toLowerCase().split(" "), topics).length -
+        _.intersection(a1.title.toLowerCase().split(" "), topics).length
+    }).forEach(function(article){
         $("#articlelist").append('<div class="row article">🔗 <a href="'+article.url+'">'+article.title+'</a></div>')
     })
 
