@@ -1,0 +1,44 @@
+.title {
+    font-weight: bold;
+    font-size: 20pt;
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 0.25em;
+}
+
+.topic {
+    height: auto;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    font-weight: bold;
+    color: white;
+    font-size: 15pt;
+    padding-left: auto;
+    text-align: center;
+    background-color: rgba(43, 26, 64, 0.52);
+    border-bottom: 1px solid white;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+.topic:hover {
+    background-color: rgba(28, 17, 41, 0.52);
+}
+
+.article {
+    font-size: 15pt;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+#articlelist {
+    margin-left: 3em;
+}
+
+#logo {
+    height: 2em;
+    margin-right: 0.25em;
+}
+
+body {
+    padding-top: 4em;
+
+}
