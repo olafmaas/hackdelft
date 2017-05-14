@@ -1,8 +1,12 @@
-import nltk, math
+import nltk, math, codecs
 from gensim.models import Doc2Vec
 from nltk.cluster.kmeans import KMeansClusterer
 import re
-NUM_CLUSTERS = 50
+
+from nltk.corpus import stopwords
+
+
+NUM_CLUSTERS = 30
 
 def preprocess(str):
     # remove links
@@ -13,13 +17,12 @@ def preprocess(str):
 def preprocess_document(text):
     text = preprocess(text)
     return ''.join([x if x.isalnum() or x.isspace() else " " for x in text ]).split()
-
+scjceou
 #data = <sparse matrix that you would normally give to scikit>.toarray()
 fname = "cyber-trend-index-dataset.model"
 model = Doc2Vec.load(fname)
 
-file = "dataset.txt"
-corpus = open(file, "r")
+corpus = codecs.open('cyber-trend-index-dataset-small.txt', mode="r", encoding="utf-8")
 lines = corpus.read().lower().split("\n")
 count = len(lines)
 
@@ -65,3 +68,24 @@ def distanceToCentroid():
         print("distance cluster: "+str(i)+" RMSE: "+str(dist)+" clustersize: "+str(clustersize))
 
 distanceToCentroid()
+
+
+def displayClust(id):
+    list = []
+    for x in range(0, len(assigned_clusters)):
+        if (assigned_clusters[x] == id):
+            list.append(used_lines[x])
+    return list
+
+def topic(titles):
+    from collections import Counter
+    words = [preprocess_document(x) for x in titles]
+    words = [word for sublist in words for word in sublist]
+    filtered_words = [word for word in words if word not in stopwords.words('english')]
+    count = Counter(filtered_words)
+    print(count.most_common()[:5])
+
+#topic(displayClust(12))
+
+def cluster_to_topics(id):
+    topic(displayClust(id))

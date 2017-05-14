@@ -17,7 +17,7 @@ class Documents(object):
     def __iter__(self):
         for i, doc in enumerate(self.documents):
             yield TaggedDocument(words = doc, tags = [i])
-file = "cyber-trend-index-dataset.txt"
+file = "cyber-trend-index-dataset-version2.txt"
 corpus = open(file, "r")
 lines = corpus.read().lower().split("\n")
 count = len(lines)
@@ -38,7 +38,7 @@ documents = Documents(preprocessed)
 
 
 #iter = 1, because we keep training ourselves :)
-model = Doc2Vec(size=100, dbow_words= 1, dm=0, iter=1,  window=5, seed=1337, min_count=5, workers=16,alpha=0.025, min_alpha=0.025)
+model = Doc2Vec(size=100, dbow_words= 1, dm=0, iter=1,  window=5, seed=1337, min_count=5, workers=4,alpha=0.025, min_alpha=0.025)
 model.build_vocab(documents)
 for epoch in range(10):
     print("epoch "+str(epoch))
