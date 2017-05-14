@@ -6,7 +6,7 @@ import re
 from nltk.corpus import stopwords
 
 
-NUM_CLUSTERS = 30
+NUM_CLUSTERS = 20
 
 def preprocess(str):
     # remove links
@@ -17,7 +17,7 @@ def preprocess(str):
 def preprocess_document(text):
     text = preprocess(text)
     return ''.join([x if x.isalnum() or x.isspace() else " " for x in text ]).split()
-scjceou
+
 #data = <sparse matrix that you would normally give to scikit>.toarray()
 fname = "cyber-trend-index-dataset.model"
 model = Doc2Vec.load(fname)
@@ -32,7 +32,6 @@ print("inferring vectors")
 duplicate_dict = {}
 used_lines = []
 for i, t in enumerate(lines):
-    #print(preprocess_document(t))
     if i % 2 == 0 and t not in duplicate_dict:
         duplicate_dict[t] = True
         used_lines.append(t)
@@ -44,40 +43,34 @@ print("done")
 
 kclusterer = KMeansClusterer(NUM_CLUSTERS, distance=nltk.cluster.util.cosine_distance, repeats=25)
 assigned_clusters = kclusterer.cluster(vectors, assign_clusters=True)
-#print(assigned_clusters)
-means = kclusterer.means()
-for mean in means:
-    print(model.most_similar(positive=[mean], topn=10))
-    print("\n")
-
-clustersizes = []
-
-def distanceToCentroid():
-    for i in range(0,NUM_CLUSTERS):
-        clustersize = 0
-        for j in range(0,len(assigned_clusters)):
-            if (assigned_clusters[j] == i):
-                clustersize+=1
-        clustersizes.append(clustersize)
-        dist = 0.0
-        centr = means[i]
-        for j in range(0,len(assigned_clusters)):
-            if (assigned_clusters[j] == i):
-                dist += pow(nltk.cluster.util.cosine_distance(vectors[j], centr),2)/clustersize
-        dist = math.sqrt(dist)
-        print("distance cluster: "+str(i)+" RMSE: "+str(dist)+" clustersize: "+str(clustersize))
-
-distanceToCentroid()
 
 
-def displayClust(id):
+# clustersizes = []
+#
+# def distanceToCentroid():
+#     for i in range(0,NUM_CLUSTERS):
+#         clustersize = 0
+#         for j in range(0,len(assigned_clusters)):
+#             if (assigned_clusters[j] == i):
+#                 clustersize+=1
+#         clustersizes.append(clustersize)
+#         dist = 0.0
+#         centr = means[i]
+#         for j in range(0,len(assigned_clusters)):
+#             if (assigned_clusters[j] == i):
+#                 dist += pow(nltk.cluster.util.cosine_distance(vectors[j], centr),2)/clustersize
+#         dist = math.sqrt(dist)
+#         print("distance cluster: "+str(i)+" RMSE: "+str(dist)+" clustersize: "+str(clustersize))
+
+
+def get_titles_by_cluster(id):
     list = []
     for x in range(0, len(assigned_clusters)):
         if (assigned_clusters[x] == id):
             list.append(used_lines[x])
     return list
 
-def topic(titles):
+def get_topics(titles):
     from collections import Counter
     words = [preprocess_document(x) for x in titles]
     words = [word for sublist in words for word in sublist]
@@ -85,7 +78,6 @@ def topic(titles):
     count = Counter(filtered_words)
     print(count.most_common()[:5])
 
-#topic(displayClust(12))
 
 def cluster_to_topics(id):
-    topic(displayClust(id))
+    get_topics(get_titles_by_cluster(id))
