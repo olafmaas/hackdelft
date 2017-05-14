@@ -31,10 +31,11 @@ duplicate_abstracts = {}
 used_objects = []
 vectors = []
 for i, d in enumerate(data):
-    if d["abstract"] not in duplicate_abstracts:
-        duplicate_abstracts[d["abstract"]] = True
+    abstract = d["abstract"].lower()
+    if abstract not in duplicate_abstracts:
+        duplicate_abstracts[abstract] = True
         used_objects.append(d)
-        vectors.append(model.infer_vector(preprocess_document(d["abstract"])))
+        vectors.append(model.infer_vector(preprocess_document(abstract)))
 
 kclusterer = KMeansClusterer(NUM_CLUSTERS, distance=nltk.cluster.util.cosine_distance, repeats=25)
 assigned_clusters = kclusterer.cluster(vectors, assign_clusters=True)
@@ -48,7 +49,7 @@ def get_objects_by_cluster(id):
 
 def get_topics(objects):
     from collections import Counter
-    words = [preprocess_document(x["abstract"]) for x in objects]
+    words = [preprocess_document(x["abstract"].lower()) for x in objects]
     words = [word for sublist in words for word in sublist]
     filtered_words = [word for word in words if word not in stopwords.words('english')]
     count = Counter(filtered_words)
