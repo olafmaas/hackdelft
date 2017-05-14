@@ -6,7 +6,7 @@
 }
 
 .topic {
-    height: auto;
+    height: 4em;
     padding-top: 0.75em;
     padding-bottom: 0.75em;
     font-weight: bold;
@@ -36,6 +36,16 @@
 #logo {
     height: 2em;
     margin-right: 0.25em;
+}
+
+.right {
+    float: left;
+    width: 80%;
+}
+
+.left {
+    float: left;
+    width: 20%;
 }
 
 body {

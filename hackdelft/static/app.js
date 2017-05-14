@@ -17,9 +17,10 @@ function processTopics(topics) {
 
 function generate_view(topic, index) {
     console.log(topic);
-    $("#topiclist").append('<div class="topic row" id="'+index+'">'+topic.topics.map(function (x) {
+    console.log("test");
+    $("#topiclist").append('<div class="topic row" id="'+index+'"><div class="left">'+topic.goodactivity+'</div><div class="right">'+topic.topics.map(function (x) {
             return x[0]
-        }).join(" ")+'</div>')
+        }).join(", ")+'</div></div>')
 
 
     $("#"+index).click(function () {
