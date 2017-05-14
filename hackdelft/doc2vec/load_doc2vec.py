@@ -2,7 +2,7 @@ import nltk, math
 from gensim.models import Doc2Vec
 from nltk.cluster.kmeans import KMeansClusterer
 import re
-NUM_CLUSTERS = 30
+NUM_CLUSTERS = 50
 
 def preprocess(str):
     # remove links
@@ -26,10 +26,15 @@ count = len(lines)
 vectors = []
 
 print("inferring vectors")
+duplicate_dict = {}
+used_lines = []
 for i, t in enumerate(lines):
     #print(preprocess_document(t))
-    if i % 2 == 0:
+    if i % 2 == 0 and t not in duplicate_dict:
+        duplicate_dict[t] = True
+        used_lines.append(t)
         vectors.append(model.infer_vector(preprocess_document(t)))
+
 print("done")
 
 
@@ -38,7 +43,6 @@ kclusterer = KMeansClusterer(NUM_CLUSTERS, distance=nltk.cluster.util.cosine_dis
 assigned_clusters = kclusterer.cluster(vectors, assign_clusters=True)
 #print(assigned_clusters)
 means = kclusterer.means()
-print(means)
 for mean in means:
     print(model.most_similar(positive=[mean], topn=10))
     print("\n")

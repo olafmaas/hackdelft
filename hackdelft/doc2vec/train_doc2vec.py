@@ -22,10 +22,15 @@ corpus = open(file, "r")
 lines = corpus.read().lower().split("\n")
 count = len(lines)
 preprocessed = []
+
+duplicate_dict = {}
+
 for t in lines:
-    t = preprocess(t)
-    fixed =''.join([x if x.isalnum() or x.isspace() else " " for x in t ]).split()
-    preprocessed.append(fixed)
+    if t not in duplicate_dict:
+        duplicate_dict[t] = True
+        t = preprocess(t)
+        fixed =''.join([x if x.isalnum() or x.isspace() else " " for x in t ]).split()
+        preprocessed.append(fixed)
 
 documents = Documents(preprocessed)
 
@@ -33,7 +38,7 @@ documents = Documents(preprocessed)
 
 
 #iter = 1, because we keep training ourselves :)
-model = Doc2Vec(size=200, dbow_words= 1, dm=0, iter=1,  window=5, seed=1337, min_count=5, workers=16,alpha=0.025, min_alpha=0.025)
+model = Doc2Vec(size=100, dbow_words= 1, dm=0, iter=1,  window=5, seed=1337, min_count=5, workers=16,alpha=0.025, min_alpha=0.025)
 model.build_vocab(documents)
 for epoch in range(10):
     print("epoch "+str(epoch))
