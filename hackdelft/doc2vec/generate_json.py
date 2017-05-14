@@ -60,7 +60,17 @@ for i in range(0,NUM_CLUSTERS):
     cur_obj = {}
     objects = get_objects_by_cluster(i)
     topics = get_topics(objects)
+    avgactivity = 0
+    goodactivity = 0
+    goodcount = 0
+    for x in range(0, len(objects)):
+        avgactivity+=int(objects[x].get("activity"))/len(objects)
+        goodactivity += int(objects[x].get("activity"))
+        if (int(objects[x].get("activity")) > 0): goodcount+=1
+    goodactivity=goodactivity/goodcount
     cur_obj["topics"] = topics
+    cur_obj["avgactivity"] = avgactivity
+    cur_obj["goodactivity"] = goodactivity
     cur_obj["articles"] = objects
     json_data.append(cur_obj)
 
