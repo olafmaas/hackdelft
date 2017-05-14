@@ -51,7 +51,7 @@ def get_topics(objects):
     from collections import Counter
     words = [preprocess_document(x["abstract"].lower()) for x in objects]
     words = [word for sublist in words for word in sublist]
-    filtered_words = [word for word in words if word not in stopwords.words('english')]
+    filtered_words = [word for word in words if word not in stopwords.words('english') and not word.isdigit()]
     count = Counter(filtered_words)
     return count.most_common()[:5]
 
