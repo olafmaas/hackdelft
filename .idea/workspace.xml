@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="503872b5-1249-4140-9ca6-53733cf41fb0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hackdelft/static/app.js" afterPath="$PROJECT_DIR$/hackdelft/static/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hackdelft/static/style.css" afterPath="$PROJECT_DIR$/hackdelft/static/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hackdelft/templates/index.html" afterPath="$PROJECT_DIR$/hackdelft/templates/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,28 +40,32 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hackdelft/static/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="468">
+              <caret line="38" column="52" lean-forward="false" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+              <folding>
+                <marker date="1494737835542" expanded="true" signature="736:763" ph="..." />
+                <marker date="1494737835542" expanded="true" signature="736:811" ph="..." />
+                <marker date="1494737835542" expanded="true" signature="1567:1579" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hackdelft/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hackdelft/static/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-126">
-              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="367">
+              <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hackdelft/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -138,9 +143,13 @@
       <find>avg</find>
       <find>get_objects_by_cluster</find>
       <find>gooda</find>
-      <find>topiclist</find>
-      <find>col-md-2 bar</find>
       <find>topic_words</find>
+      <find>col-md-2 bar</find>
+      <find>generate_view</find>
+      <find>click</find>
+      <find>topiclist</find>
+      <find>background</find>
+      <find>sort</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,8 +163,8 @@
         <option value="$PROJECT_DIR$/hackdelft/doc2vec/generate_json.py" />
         <option value="$PROJECT_DIR$/hackdelft/main.py" />
         <option value="$PROJECT_DIR$/hackdelft/templates/index.html" />
-        <option value="$PROJECT_DIR$/hackdelft/static/style.css" />
         <option value="$PROJECT_DIR$/hackdelft/static/app.js" />
+        <option value="$PROJECT_DIR$/hackdelft/static/style.css" />
       </list>
     </option>
   </component>
@@ -771,26 +780,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hackdelft/static/style.css">
+    <entry file="file://$PROJECT_DIR$/hackdelft/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-126">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="396">
+          <caret line="22" column="51" lean-forward="false" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hackdelft/static/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="468">
+          <caret line="38" column="52" lean-forward="false" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+          <folding>
+            <marker date="1494737835542" expanded="true" signature="736:763" ph="..." />
+            <marker date="1494737835542" expanded="true" signature="736:811" ph="..." />
+            <marker date="1494737835542" expanded="true" signature="1567:1579" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hackdelft/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/hackdelft/static/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="10" lean-forward="true" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        <state relative-caret-position="367">
+          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="31" />
           <folding />
         </state>
       </provider>

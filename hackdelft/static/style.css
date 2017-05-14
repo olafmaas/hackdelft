@@ -14,13 +14,23 @@
     font-size: 15pt;
     padding-left: auto;
     text-align: center;
-    background-color: rgba(43, 26, 64, 0.52);
     border-bottom: 1px solid white;
     font-family: 'Maven Pro', sans-serif;
+    cursor: pointer;
+    text-shadow: 0px 1px #000000;
+}
+
+.article{
+
+    text-shadow: 2px 2px #DDDDDD;
 }
 
 .topic:hover {
-    background-color: rgba(28, 17, 41, 0.52);
+    opacity: 0.8;
+}
+
+.activate {
+    text-decoration: underline;
 }
 
 .article {
